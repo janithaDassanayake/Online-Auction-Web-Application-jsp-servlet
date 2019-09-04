@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<Querys>
+	<query id="create_User_table">
+        <![CDATA[
+            CREATE TABLE user(
+				sl_no varchar(10) not null,
+				user_name varchar(50),
+				email varchar(50),
+				mobile varchar(15),
+				address varchar(50),
+				memberType varchar(30),
+				gender varchar(10),
+				primary key (sl_no)
+				
+			)
+        ]]>
+	</query>
+
+	
+	<query id="drop_table">
+         <![CDATA[        
+            DROP TABLE IF EXISTS user 
+        ]]>
+	</query>
+
+	
+	
+	<query id="insert_User">
+        <![CDATA[
+          	insert into user(sl_no, user_name , email , mobile ,address, memberType ,gender) 
+          	values (?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	
+	<query id="User_by_id">
+         <![CDATA[        
+            select * from user where user.sl_no = ?
+        ]]>
+	</query>
+
+
+	<query id="all_User">
+         <![CDATA[        
+            select * from user
+        ]]>
+	</query>
+
+	<query id="remove_User">
+         <![CDATA[        
+            delete from user where user.sl_no  = ?
+        ]]>
+	</query>
+	
+	
+	<query id="update_User">
+         <![CDATA[        
+            update user as u
+            set u.user_name = ?, u.email  = ?, u.mobile = ?, u.address = ?, u.memberType = ?, u.gender = ? 
+            where u.sl_no = ?
+        ]]>
+	</query>
+	
+		
+	<query id="User_ids">
+         <![CDATA[       
+         	 select u.sl_no from user as u 
+        ]]>
+	</query>
+
+</Querys>
